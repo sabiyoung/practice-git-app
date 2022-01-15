@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import {TodoModel } from './schemas/todo.schama.js'
+import {TodoModel } from './schemas/todo.schema.js'
 const app = express();
 const port = 3000
 
@@ -14,8 +14,6 @@ mongoose
   })
 
 
-
-
   app.use(cors({
       credentials: true,
       origin: ['http://localhost:3000', 'http://localhost:4200', 'http://localhost:3501', 'http://localhost:8080']
@@ -24,8 +22,9 @@ mongoose
 
 
 
+
   app.post("/create-todo", function(req, res) {
-    const {text} = req.body
+    const { text} = req.body
     const todo = new TodoModel({
     
       text
@@ -49,7 +48,6 @@ todo
       res.json({ errors: err });
     });
   })
-
 
 
 

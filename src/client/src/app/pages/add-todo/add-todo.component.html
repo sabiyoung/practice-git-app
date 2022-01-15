@@ -1,1 +1,23 @@
 <p>add-todo works!</p>
+    <div class="container">
+      <!-- <form [formGroup]="addTodo"> -->
+      <div class="row">
+        <div class="col">
+        <label>Todo Tasks</label><br><br>
+        <input type="text"placeholder="Todos" [(ngModel)]="title" />
+        <button (click)="addTodo() ">Add</button>
+        <button>Delete</button>
+        <button>Update</button><br><hr>
+        <div >
+
+          <ul>
+            <li *ngFor="let item of (todos$ | async)">
+               {{item.text}}
+            </li>
+          </ul>
+        </div>
+
+        </div>
+      </div>
+    <!-- </form> -->
+    </div>
