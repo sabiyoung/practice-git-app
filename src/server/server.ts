@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import {TodoModel } from './schemas/todo.schama.js'
+import {TodoModel } from './schemas/todo.schema.js'
 const app = express();
 const port = 3000
 
