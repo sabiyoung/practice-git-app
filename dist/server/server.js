@@ -16,7 +16,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.post("/create-todo", function (req, res) {
-    const { text } = req.body;
+    const text = req.body;
     const todo = new TodoModel({
         text
     });
