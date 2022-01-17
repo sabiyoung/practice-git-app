@@ -16,7 +16,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.post("/create-todo", function (req, res) {
-    const{ text} = req.body;
+    const { text } = req.body;
     const todo = new TodoModel({
         text
     });
@@ -37,6 +37,13 @@ app.get("/todos", function (req, res) {
         .catch((err) => {
         res.status(501);
         res.json({ errors: err });
+    });
+});
+app.delete("/delete-task/:saba", function (req, res) {
+    const _id = req.params.saba;
+    TodoModel.findByIdAndDelete(_id).then((data) => {
+        console.log(data);
+        res.json({ data });
     });
 });
 app.listen(PORT, function () {
