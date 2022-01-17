@@ -47,7 +47,16 @@ todo
       res.status(501);
       res.json({ errors: err });
     });
+
   })
+
+  app.delete("/delete-task/:saba", function(req,res){
+      const _id = req.params.saba;
+      TodoModel.findByIdAndDelete(_id).then((data)=>{
+          console.log(data)
+          res.json({data})
+      });
+  });
 
 
 

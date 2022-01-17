@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter} from 'rxjs/operators';
 import { TodoService } from 'src/app/services/todo.service';
 import { Todo } from '../../../../../shared/models/Todo.model';
 
@@ -13,7 +13,8 @@ import { Todo } from '../../../../../shared/models/Todo.model';
 export class AddTodoComponent implements OnInit {
 title = ''
 myArray=['']
-textArray: Todo[]=[]
+// textArray: Todo[]=[]
+todos:Todo[]=[];
 public todos$!: Observable<Todo[]>;
 
 
@@ -43,4 +44,10 @@ getTodos() {
 
 }
 
+delete(todo:Todo){
+  console.log("component", todo);
+   this.todoService.deleteTask(todo).subscribe(data=>{
+     console.log(data)
+   })
+}
 }

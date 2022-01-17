@@ -10,9 +10,7 @@ export class TodoService {
   constructor(private api: ApiService) { }
   createTodo(todo:Todo) {
     console.log("todo service")
-  return this.api
-
-    .post<{ data: Todo }>('create-todo', todo)
+  return this.api.post<{ data: Todo }>('create-todo', todo)
     .pipe(map((res) => res.data));
 
 }
@@ -20,5 +18,8 @@ export class TodoService {
 getTodos(){
   return this.api.get<{data: Todo[]}>('todos').pipe(map((res) => res.data))
 }
-
+deleteTask(todo:Todo){
+  console.log("service", todo)
+  return this.api.delete<{data:Todo}>("delete-task/" + todo._id)
+}
 }

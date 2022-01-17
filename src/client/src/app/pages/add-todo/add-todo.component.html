@@ -5,14 +5,13 @@
         <div class="col">
         <label>Todo Tasks</label><br><br>
         <input type="text"placeholder="Todos" [(ngModel)]="title" />
-        <button (click)="addTodo() ">Add</button>
-        <button>Delete</button>
+        <button (click)="addTodo()">Add</button>
         <button>Update</button><br><hr>
         <div >
-
           <ul>
             <li *ngFor="let item of (todos$ | async)">
                {{item.text}}
+               <button (click)="delete(item)">Delete</button>
             </li>
           </ul>
         </div>
